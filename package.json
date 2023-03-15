@@ -1,0 +1,20 @@
+{
+  "name": "csv-json-convertor",
+  "version": "1.0.0",
+  "description": "converts any uploaded csv into json",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node ."
+  },
+  "keywords": [
+    "csv-json-convertor",
+    "json",
+    "covertor",
+    "csv",
+    "covertor",
+    "csv-covertor",
+    "json-convertor"
+  ],
+  "author": "Benhur Immanuel Benjamin",
+  "license": "ISC"
+}
