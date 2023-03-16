@@ -17,7 +17,7 @@ fs.createReadStream("./data.csv", 'utf-8')
         for (i in dataList) {
             for (j in dataList[i].split(",")) {
                 let singleEntry = dataList[i].split(",")[j]
-                if (singleEntry == "") { singleEntry = null }
+                if (singleEntry == "" || singleEntry == "\r") { singleEntry = null }
                 if (JSON.stringify(singleEntry).includes("-")) {
                     let arrayElements = JSON.stringify(singleEntry).split("-")
                     singleEntry = arrayElements.toString().replace(/"/g, "").split(",")
@@ -31,7 +31,7 @@ fs.createReadStream("./data.csv", 'utf-8')
             }
         }
         //writing to file
-        fs.writeFileSync("./data.json", JSON.stringify(allElements))
+        // fs.writeFileSync("./data.json", JSON.stringify(allElements))
     })
 
 
