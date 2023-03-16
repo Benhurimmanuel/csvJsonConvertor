@@ -9,11 +9,14 @@
   "keywords": [
     "csv-json-convertor",
     "json",
-    "covertor",
+    "json_convertor",
     "csv",
-    "covertor",
-    "csv-covertor",
-    "json-convertor"
+    "convertor",
+    "csv-convertor",
+    "json-convertor",
+    "csv_json_convertor",
+    "json-convertor",
+    "jsonConvertor"
   ],
   "author": "Benhur Immanuel Benjamin",
   "license": "ISC"

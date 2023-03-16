@@ -31,7 +31,7 @@ fs.createReadStream("./data.csv", 'utf-8')
             }
         }
         //writing to file
-        // fs.writeFileSync("./data.json", JSON.stringify(allElements))
+        fs.writeFileSync("./data.json", JSON.stringify(allElements))
     })
 
 
