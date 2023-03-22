@@ -27,7 +27,7 @@ SOFTWARE.
 
 # Install
 ```
-$ npm install english_contractions
+$ npm i parse-csv-json
 ```
 ```
  await csv_json_convertor.csvJson(pathtofile,delimtter)
