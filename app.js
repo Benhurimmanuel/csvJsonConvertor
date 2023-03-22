@@ -1,39 +1,56 @@
 const fs = require("fs");
+let allElements = []
 
+module.exports = {
 
-fs.createReadStream("./data.csv", 'utf-8')
-    .on("data", function (row) {
-        var content = JSON.stringify(row);
-        var data = JSON.parse(content);
-
-        // after reading from file converting to JSON
-        const rows = data.split("\n")
-        const titleRow = rows[0]
-        const dataList = rows.slice(1, rows.length)
-
-        let singleElement = {}
-        let allElements = []
-
-        for (i in dataList) {
-            for (j in dataList[i].split(",")) {
-                let singleEntry = dataList[i].split(",")[j]
-                if (singleEntry == "" || singleEntry == "\r") { singleEntry = null }
-                if (JSON.stringify(singleEntry).includes("-")) {
-                    let arrayElements = JSON.stringify(singleEntry).split("-")
-                    singleEntry = arrayElements.toString().replace(/"/g, "").split(",")
-                }
-                singleElement[titleRow.split(",")[j]] = singleEntry
-                const size = Object.keys(singleElement).length;
-                if (size == titleRow.split(",").length) {
-                    allElements.push(singleElement)
-                    singleElement = {}
-                }
-            }
+    //csv-Json parser
+    // @description converts csv into json, takes _-;, as default delimmters,if delimiter is not specified
+    // @params filePath,delimiter-string,string
+    // @return  JSON
+    csvJson: function (filePath = '', delimiter = `_-;,`) {
+        switch (filePath) {
+            case '': throw new ReferenceError(`filePath must be a specified`)
+            case (undefined || 'undefined'): throw TypeError(`filePath cannot be undefined`)
+            case (null || 'null'): throw TypeError(`filePath cannot be null`)
+            default:
+                break;
         }
-        //writing to file
-        fs.writeFileSync("./data.json", JSON.stringify(allElements))
-    })
-
-
-
-
+        if (typeof (filePath) !== 'string') { throw new TypeError(`filePath must be a valid string`) }
+        else if (typeof (delimiter) !== 'string') throw new TypeError(`delimiter must be a valid string`)
+        else {
+            return new Promise((resolve, reject) => {
+                fs.createReadStream(filePath, 'utf-8')
+                    .on("data", function (row) {
+                        var content = JSON.stringify(row);
+                        var data = JSON.parse(content);
+                        // after reading from file converting to JSON
+                        const rows = data.split("\n")
+                        const titleRow = rows[0]
+                        const dataList = rows.slice(1, rows.length)
+                        let singleElement = {}
+                        for (i in dataList) {
+                            for (j in dataList[i].split(",")) {
+                                let singleEntry = dataList[i].split(",")[j]
+                                if (singleEntry == "" || singleEntry == "\r") { singleEntry = null }
+                                delimiter.split('').some(specialChar => {
+                                    if (JSON.stringify(singleEntry).includes(specialChar)) {
+                                        singleEntry = singleEntry.toString().replace(/"/g, "").split(specialChar)
+                                        return true;
+                                    }
+                                });
+                                singleElement[titleRow.split(",")[j].trim()] = singleEntry
+                                const size = Object.keys(singleElement).length;
+                                if (size == titleRow.split(",").length) {
+                                    allElements.push(singleElement)
+                                    singleElement = {}
+                                }
+                            }
+                        }
+                    })
+                    .on('end', () => {
+                        resolve(allElements);
+                    });
+            })
+        }
+    }
+}
