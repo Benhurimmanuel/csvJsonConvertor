@@ -3,11 +3,11 @@ let allElements = []
 
 module.exports = {
 
-    //csv-Json parser
-    // @description converts csv into json, takes _-;, as default delimmters,if delimiter is not specified
+    //CSV-JSON parser
+    // @description converts CSV into JSON, takes _-;, as default delimmters,if delimiter is not specified
     // @params filePath,delimiter-string,string
     // @return  JSON
-    csvJson: function (filePath = '', delimiter = `_-;,`) {
+    csvJson: (filePath = '', delimiter = `_-;,`) => {
         switch (filePath) {
             case '': throw new ReferenceError(`filePath must be a specified`)
             case (undefined || 'undefined'): throw TypeError(`filePath cannot be undefined`)
@@ -52,5 +52,11 @@ module.exports = {
                     });
             })
         }
-    }
+    },
+
+    //JSON-CSV parser
+    // @description converts JSON into CSV, 
+    // @params filePath,delimiter-string,string
+    // @return  JSON
+    jsonCSV: () => { }
 }
