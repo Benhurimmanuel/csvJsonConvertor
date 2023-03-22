@@ -8,6 +8,9 @@
     "dev": "node ."
   },
   "keywords": [
+    "parse-csvJson",
+    "csvJsonParser",
+    "csv_JSON-parser",
     "csv-json-convertor",
     "csv_json",
     "CSV_JSON",
