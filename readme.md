@@ -27,7 +27,7 @@ SOFTWARE.
 
 # Install
 ```
-$const csv_json_convertor =  npm i parse-csv-json
+$ npm i parse-csv-json
 ```
 ```
  await csv_json_convertor.csvJson(pathtofile,delimtter)

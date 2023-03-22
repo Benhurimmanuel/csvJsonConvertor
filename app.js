@@ -1,6 +1,5 @@
 const fs = require("fs");
 let allElements = []
-console.log(45);
 
 module.exports = {
     //CSV-JSON parser
@@ -8,7 +7,6 @@ module.exports = {
     // @params filePath,delimiter-string,string
     // @return  JSON
     csvJson: (filePath = '', delimiter = `_-;,`) => {
-        console.log(10);
         switch (filePath) {
             case '': throw new ReferenceError(`filePath must be a specified`)
             case (undefined || 'undefined'): throw TypeError(`filePath cannot be undefined`)
