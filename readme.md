@@ -29,6 +29,10 @@ SOFTWARE.
 ```
 $ npm install english_contractions
 ```
+```
+ await csv_json_convertor.csvJson(pathtofile,delimtter)
+ note: empty strings will be converted to null 
+```
 
 ```
 $ const csv_json_convertor = require("parse-csv-json");
@@ -37,9 +41,6 @@ $ const csv_json_convertor = require("parse-csv-json");
 
 
 const test =async ()=>{
-
-    //csv_json_convertor.csvJson(pathtofile,delimtter)
-
    console.lpg(await csv_json_convertor.csvJson("./test.csv"))
    //console.lpg(await csv_json_convertor.csvJson("./test.csv",`$`))
 }
