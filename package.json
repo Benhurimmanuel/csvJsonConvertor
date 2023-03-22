@@ -1,5 +1,5 @@
 {
-  "name": "parseCsvJson",
+  "name": "parse-csv-json",
   "version": "1.2.0",
   "description": "converts any uploaded csv into json",
   "main": "./app.js",
