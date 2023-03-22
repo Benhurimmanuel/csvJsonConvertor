@@ -8,15 +8,14 @@
     "dev": "node ."
   },
   "keywords": [
+    "convert csv to json",
+    "csv JSON parser",
+    "parse csv json",
     "parse-csvJson",
     "csvJsonParser",
     "csv_JSON-parser",
     "csv-json-convertor",
-    "csv-json-convertor",
-    "json",
     "json_convertor",
-    "csv",
-    "convertor",
     "csv-convertor",
     "json-convertor",
     "csv_json_convertor",
