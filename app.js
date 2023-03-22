@@ -2,7 +2,6 @@ const fs = require("fs");
 let allElements = []
 
 module.exports = {
-
     //CSV-JSON parser
     // @description converts CSV into JSON, takes _-;, as default delimmters,if delimiter is not specified
     // @params filePath,delimiter-string,string
@@ -53,10 +52,9 @@ module.exports = {
             })
         }
     },
-
     //JSON-CSV parser
     // @description converts JSON into CSV, 
     // @params filePath,delimiter-string,string
     // @return  JSON
-    jsonCSV: () => { }
+    // jsonCSV: () => { }
 }
