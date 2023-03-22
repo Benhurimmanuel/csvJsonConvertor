@@ -35,6 +35,9 @@ $ npm i parse-csv-json
 ```
 
 ```
+
+//example
+
 $ const csv_json_convertor = require("parse-csv-json");
 
 //note : by default the delimmter for the csv are `_-;,`, delimtters can be changed in the fucntion by passing as a continous string
