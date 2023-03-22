@@ -1,6 +1,6 @@
 {
   "name": "csv-json-convertor",
-  "version": "2.0.0",
+  "version": "1.1.5",
   "description": "converts any uploaded csv into json",
   "main": "app.js",
   "scripts": {
